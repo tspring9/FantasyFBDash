@@ -109,7 +109,7 @@ st.markdown(
     .mono-line {{
         font-family: {FONT_MONO};
         font-size: 12.5px;
-        color: {CHALK_DIM};
+        color: {CHALK};
         margin-top: 4px;
     }}
     .mono-line-main {{
@@ -128,7 +128,7 @@ st.markdown(
         color: {AMBER};
     }}
     .name-tag .team {{
-        color: {CHALK_DIM};
+        color: {CHALK};
         font-weight: 500;
         font-size: 18px;
     }}
@@ -147,7 +147,7 @@ st.markdown(
         font-size: 15px;
         text-transform: uppercase;
         letter-spacing: 0.04em;
-        color: {CHALK_DIM};
+        color: {CHALK};
     }}
     button[data-baseweb="tab"][aria-selected="true"] {{
         color: {AMBER} !important;
@@ -168,7 +168,7 @@ st.markdown(
 PLOTLY_LAYOUT = dict(
     paper_bgcolor=PANEL,
     plot_bgcolor=PANEL,
-    font=dict(family=FONT_MONO, color=CHALK_DIM, size=12),
+    font=dict(family=FONT_MONO, color=CHALK, size=12),
     margin=dict(l=10, r=10, t=10, b=10),
 )
 
