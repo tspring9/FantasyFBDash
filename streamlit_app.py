@@ -168,7 +168,7 @@ st.markdown(
 PLOTLY_LAYOUT = dict(
     paper_bgcolor=PANEL,
     plot_bgcolor=PANEL,
-    font=dict(family=FONT_MONO, color=CHALK, size=12),
+    font=dict(family=FONT_MONO, color=CHALK_DIM, size=12),
     margin=dict(l=10, r=10, t=10, b=10),
 )
 
