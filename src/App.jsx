@@ -190,7 +190,7 @@ function SeasonExplorer() {
    TAB: ALL-TIME
 ------------------------------------------------------------------*/
 function AllTime() {
-  const top10 = [...DATA.leaderboard].filter((t) => t.GP >= 13).sort((a, b) => b.WinPct - a.WinPct).slice(0, 10);
+  const ranked = [...DATA.leaderboard].filter((t) => t.GP >= 13).sort((a, b) => b.WinPct - a.WinPct);
 
   return (
     <div>
@@ -222,7 +222,7 @@ function AllTime() {
               </tr>
             </thead>
             <tbody>
-              {top10.map((t, i) => (
+              {ranked.map((t, i) => (
                 <tr key={t.UniqueName} style={{ borderTop: `1px solid ${C.panelLine}` }}>
                   <td style={{ padding: "8px", color: C.amber }}>{i + 1}</td>
                   <td style={{ padding: "8px", color: C.chalk }}>{t.UniqueName}</td>
@@ -508,7 +508,7 @@ function RecordBook() {
 
   const cards = [
     { title: "Biggest Blowout", big: `+${r.blowout.margin}`, lines: [`${r.blowout.winnerUnique || r.blowout.winner} over ${r.blowout.loserUnique || r.blowout.loser}`, `${r.blowout.season}, Week ${r.blowout.week}`] },
-    { title: "Closest Finish", big: `${r.closest.margin}`, lines: [`${r.closest.homeUnique || r.closest.home} ${r.closest.homeScore} \u2013 ${r.closest.awayScore} ${r.closest.awayUnique || r.closest.away}`, `${r.closest.season}, Week ${r.closest.week}`] },
+    { title: "Closest Finish", big: `${r.closest.margin}`, lines: [`${r.closest.homeUnique || r.closest.home} ${r.closest.homeScore} – ${r.closest.awayScore} ${r.closest.awayUnique || r.closest.away}`, `${r.closest.season}, Week ${r.closest.week}`] },
     { title: "Highest Single Score", big: r.highScore.score, lines: [r.highScore.uniqueName || r.highScore.team, `${r.highScore.season}, Week ${r.highScore.week}`] },
     { title: "Highest-Scoring Shootout", big: r.shootout.total, lines: [`${r.shootout.homeUnique || r.shootout.home} vs ${r.shootout.awayUnique || r.shootout.away}`, `${r.shootout.season}, Week ${r.shootout.week}`] },
   ];
@@ -547,7 +547,7 @@ export default function LeagueDashboard() {
 
       <div style={{ padding: "22px 24px 40px", maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
-          <KPI label="Seasons Logged" value={DATA.kpis.seasons} sub="2018\u20132025" />
+          <KPI label="Seasons Logged" value={DATA.kpis.seasons} sub="2018–2025" />
           <KPI label="Managers" value={DATA.kpis.managers} />
           <KPI label="Games Played" value={DATA.kpis.totalGames} />
           <KPI label="All-Time High Score" value={DATA.kpis.highScore} sub="single team, single week" />
@@ -567,7 +567,7 @@ export default function LeagueDashboard() {
         {tab === "records" && <RecordBook />}
 
         <div style={{ marginTop: 32, fontFamily: fontMono, fontSize: 11, color: C.steel, textAlign: "center" }}>
-          Source: ESPN Fantasy Football exports, 2018\u20132025 &nbsp;&middot;&nbsp; Manager names shown as First Name + Last Initial &nbsp;&middot;&nbsp; Draft value analysis covers seasons with weekly projection data: {PERF_SEASONS.join(", ")}
+          Source: ESPN Fantasy Football exports, 2018–2025 &nbsp;&middot;&nbsp; Manager names shown as First Name + Last Initial &nbsp;&middot;&nbsp; Draft value analysis covers seasons with weekly projection data: {PERF_SEASONS.join(", ")}
         </div>
       </div>
     </div>
